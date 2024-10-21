@@ -5,7 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane minHeight="600" minWidth="1000" style="-fx-background-image: url('https://i0.wp.com/thatnhucuocsong.com.vn/wp-content/uploads/2022/01/hinh-nen-dep-cho-win-10-4k.jpg'); -fx-background-size: 1100 600;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanbanlaptop.SignupFuncion">
+<BorderPane minHeight="600" minWidth="1000" style="-fx-background-image: url('https://i0.wp.com/thatnhucuocsong.com.vn/wp-content/uploads/2022/01/hinh-nen-dep-cho-win-10-4k.jpg'); -fx-background-size: 1100 600;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanbanlaptop.function.SignupFuncion">
     <left>
         <VBox alignment="CENTER" minWidth="500" spacing="40" style="-fx-background-color: rgba(0, 0, 0, 0.5) ; -fx-background-radius: 0 80 80 0 ">
             <HBox alignment="CENTER" minWidth="500">
