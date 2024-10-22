@@ -15,7 +15,7 @@
                 </VBox>
             </HBox>
             <HBox alignment="CENTER" minWidth="500">
-                <Button minHeight="15" minWidth="180" style="-fx-text-fill: white; -fx-font-size: 15; -fx-background-color: #00BB00 ; " text="Login" fx:id="loginButton" />
+                <Button minHeight="15" minWidth="180" style="-fx-text-fill: white; -fx-font-size: 15; -fx-background-color: #00BB00 ; " text="Login" onAction="#transitionToLogin"  />
             </HBox>
 
         </VBox>

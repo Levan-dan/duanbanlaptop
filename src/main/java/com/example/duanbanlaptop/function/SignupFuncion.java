@@ -1,11 +1,13 @@
 package com.example.duanbanlaptop.function;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.example.duanbanlaptop.Connect;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Label;
@@ -31,12 +33,7 @@ public class SignupFuncion {
 
 
     @FXML
-    public void initialize() {
-
-    }
-
-    @FXML
-    private void signup() throws SQLException {
+    private void signup() throws SQLException, IOException {
         String username = txtUsername.getText();
         String password = txtPassword.getText();
         String phonenumber = txtPhoneNumber.getText();
@@ -49,7 +46,6 @@ public class SignupFuncion {
             error.setText("Please fill in all registration information !");
         } else {
 
-
             for (char t : username.toCharArray()) {
                 if (!Character.isLetterOrDigit(t)) {
                     error.setText("Username cannot contain special characters.");
@@ -57,12 +53,9 @@ public class SignupFuncion {
                 }
             }
 
-
             if (password.length() < 8) {
                 error.setText("Password must be at least 8 characters long.");
-            }
-
-            else if (phonenumber.length() < 10 || phonenumber.length() > 10) {
+            } else if (phonenumber.length() < 10 || phonenumber.length() > 10) {
                 error.setText("Phone numbers must be 10 characters ");
                 for (char t : phonenumber.toCharArray()) {
                     if (!Character.isDigit(t)) {
@@ -70,7 +63,11 @@ public class SignupFuncion {
                         return;
                     }
                 }
-            }else{
+            } else if (!SignupRegex.validPhoneNumber(phonenumber)) {
+                error.setText("Invalid phone number");
+            } else if (!SignupRegex.validEmail(email)) {
+                error.setText("Email is not in correct format.");
+            } else {
                 Connect connect = new Connect();
                 Connection conn = connect.connect();
 
@@ -85,15 +82,24 @@ public class SignupFuncion {
                 add.setString(7, gender);
                 int row = add.executeUpdate();
                 if (row != 0) {
-                    System.out.println("thanh cong");
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Thông báo");
+                    alert.setContentText("Registration successful!");
+                    alert.showAndWait();  // Hiển thị hộp thoại
+
+                    TransitionFunction transitionFunction = new TransitionFunction();
+                    transitionFunction.transition("view/login.fxml");
                 }
 
             }
-                }
-            }
-
-
         }
+    }
+
+    public void transitionToLogin() throws IOException {
+        TransitionFunction transitionFunction = new TransitionFunction();
+        transitionFunction.transition("view/login.fxml");
+    }
+}
 
 
 
