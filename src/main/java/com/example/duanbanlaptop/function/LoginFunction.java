@@ -15,8 +15,6 @@ public class LoginFunction {
 
     @FXML
     public void transitionToSignup() throws IOException {
-//        Main main = new Main();
-//        main.transition("view/signup.fxml");
 
         TransitionFunction transitionFunction = new TransitionFunction();
         transitionFunction.transition("view/signup.fxml");
