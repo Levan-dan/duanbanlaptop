@@ -2,6 +2,7 @@ module com.example.duanbanlaptop {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires java.desktop;
 
 
     opens com.example.duanbanlaptop to javafx.fxml;

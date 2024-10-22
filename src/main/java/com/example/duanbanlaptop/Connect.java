@@ -1,8 +1,5 @@
 package com.example.duanbanlaptop;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -14,7 +11,6 @@ public class Connect {
 
     public Connection connect() throws SQLException {
         Connection conn = DriverManager.getConnection(url, usernameDB, passwordDB);
-        System.out.println("ket noi thanh cong");
         return conn;
     }
 }
