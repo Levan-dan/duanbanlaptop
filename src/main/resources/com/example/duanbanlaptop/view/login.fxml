@@ -20,14 +20,14 @@
             <HBox alignment="CENTER" spacing="15">
                 <Label  style="-fx-font-size: 15" layoutX="83.0" layoutY="120.0" prefHeight="18.0" prefWidth="70.0" text="Username"
                         textFill="WHITE"/>
-                <TextField fx:id="username1" layoutX="157.0" layoutY="117.0" prefHeight="26.0" prefWidth="211.0"/>
+                <TextField fx:id="txtUsername" layoutX="157.0" layoutY="117.0" prefHeight="26.0" prefWidth="211.0"/>
             </HBox>
 
             <HBox alignment="CENTER" spacing="15">
                 <Label style="-fx-font-size: 15" layoutX="83.0" layoutY="176.0" prefHeight="18.0" prefWidth="70.0" text="Password"
                        textFill="WHITE"/>
 
-                <PasswordField fx:id="password1"  layoutX="157.0" layoutY="172.0" prefHeight="26.0" prefWidth="211.0"/>
+                <PasswordField fx:id="txtPassword"  layoutX="157.0" layoutY="172.0" prefHeight="26.0" prefWidth="211.0"/>
 
             </HBox>
 
@@ -42,11 +42,12 @@
 
 
                 <Button  layoutX="182.0" layoutY="289.0" mnemonicParsing="false" prefHeight="36.0" minWidth="200"
-                        style="-fx-background-color:#0066FF; -fx-background-radius: 90 ; -fx-text-fill: white ; -fx-font-size: 13" text="Login"/>
+                        style="-fx-background-color:#0066FF; -fx-background-radius: 90 ; -fx-text-fill: white ; -fx-font-size: 13" text="Login" onAction="#login"/>
 
                 <Button   layoutX="182.0" layoutY="289.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="106.0"
                           style="-fx-background-color:#00BB00; -fx-background-radius: 90 ; -fx-text-fill: white ; -fx-font-size: 13" text="Sign up" onAction="#transitionToSignup"/>
 
+                <Label fx:id="bug" style="-fx-text-fill: red; -fx-font-size: 13"/>
             </VBox>
         </VBox>
     </center>

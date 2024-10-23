@@ -44,6 +44,8 @@ public class SignupFuncion {
 
         if (username.isEmpty() || password.isEmpty() || phonenumber.isEmpty() || email.isEmpty() || address.isEmpty() || gender == null) {
             error.setText("Please fill in all registration information !");
+        } else if (!SignupRegex.validUsername(username)) {
+            error.setText("Usernames can only be written without accents !");
         } else {
 
             for (char t : username.toCharArray()) {
