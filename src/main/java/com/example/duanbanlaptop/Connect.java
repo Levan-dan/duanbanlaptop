@@ -13,4 +13,8 @@ public class Connect {
         Connection conn = DriverManager.getConnection(url, usernameDB, passwordDB);
         return conn;
     }
+
+    public Connection Connect() {
+        return null;
+    }
 }
