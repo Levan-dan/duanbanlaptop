@@ -5,17 +5,25 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane minHeight="600" minWidth="1000" style="-fx-background-image: url('https://i0.wp.com/thatnhucuocsong.com.vn/wp-content/uploads/2022/01/hinh-nen-dep-cho-win-10-4k.jpg'); -fx-background-size: 1100 600;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanbanlaptop.function.SignupFuncion">
+<BorderPane minHeight="600" minWidth="1000"
+            style="-fx-background-image: url('https://i0.wp.com/thatnhucuocsong.com.vn/wp-content/uploads/2022/01/hinh-nen-dep-cho-win-10-4k.jpg'); -fx-background-size: 1100 600;"
+            xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.duanbanlaptop.function.SignupFuncion">
     <left>
-        <VBox alignment="CENTER" minWidth="500" spacing="40" style="-fx-background-color: rgba(0, 0, 0, 0.5) ; -fx-background-radius: 0 80 80 0 ">
+        <VBox alignment="CENTER" minWidth="500" spacing="40"
+              style="-fx-background-color: rgba(0, 0, 0, 0.5) ; -fx-background-radius: 0 80 80 0 ">
             <HBox alignment="CENTER" minWidth="500">
                 <VBox alignment="CENTER" spacing="20">
-                    <Label style="-fx-font-size: 30; -fx-text-fill: white; -fx-font-weight: bold" text="Hello Friend !" />
-                    <Label style="-fx-font-size: 15; -fx-text-fill: white" text="If you want to comback to login please click the button below." />
+                    <Label style="-fx-font-size: 30; -fx-text-fill: white; -fx-font-weight: bold"
+                           text="Hello Friend !"/>
+                    <Label style="-fx-font-size: 15; -fx-text-fill: white"
+                           text="If you want to comback to login please click the button below."/>
                 </VBox>
             </HBox>
             <HBox alignment="CENTER" minWidth="500">
-                <Button minHeight="15" minWidth="180" style="-fx-text-fill: white; -fx-font-size: 15; -fx-background-color: #00BB00 ; " text="Login" onAction="#transitionToLogin"  />
+                <Button minHeight="15" minWidth="180"
+                        style="-fx-text-fill: white; -fx-font-size: 15; -fx-background-color: #00BB00 ; " text="Login"
+                        onAction="#transitionToLogin"/>
             </HBox>
 
         </VBox>
@@ -25,57 +33,60 @@
     <right>
         <VBox spacing="35">
             <HBox alignment="TOP_CENTER" minWidth="500">
-                <Label alignment="CENTER" style="-fx-font-weight: bold; -fx-font-size: 40; -fx-text-fill: white" text="Sign up"  />
+                <Label alignment="CENTER" style="-fx-font-weight: bold; -fx-font-size: 40; -fx-text-fill: white"
+                       text="Sign up"/>
             </HBox>
 
 
             <HBox alignment="CENTER" minWidth="500" spacing="25">
-                <Label minWidth="90" style="-fx-font-size: 15; -fx-text-fill: white" text="Username" />
+                <Label minWidth="90" style="-fx-font-size: 15; -fx-text-fill: white" text="Username"/>
 
-                    <TextField fx:id="txtUsername" minWidth="200" />
+                <TextField fx:id="txtUsername" minWidth="200"/>
             </HBox>
 
 
             <HBox alignment="CENTER" minWidth="500" spacing="25">
-                <Label minWidth="90" style="-fx-font-size: 15; -fx-text-fill: white" text="Password" />
+                <Label minWidth="90" style="-fx-font-size: 15; -fx-text-fill: white" text="Password"/>
 
-                <PasswordField fx:id="txtPassword" minWidth="200" />
+                <PasswordField fx:id="txtPassword" minWidth="200"/>
             </HBox>
 
             <HBox alignment="CENTER" minWidth="500" spacing="25">
-                <Label minWidth="90" style="-fx-font-size: 15; -fx-text-fill: white" text="Phone number" />
-                <TextField fx:id="txtPhoneNumber" minWidth="200" />
+                <Label minWidth="90" style="-fx-font-size: 15; -fx-text-fill: white" text="Phone number"/>
+                <TextField fx:id="txtPhoneNumber" minWidth="200"/>
             </HBox>
 
             <HBox alignment="CENTER" minWidth="500" spacing="25">
-                <Label minWidth="90" style="-fx-font-size: 15; -fx-text-fill: white" text="Email" />
-                <TextField fx:id="txtEmail" minWidth="200" />
+                <Label minWidth="90" style="-fx-font-size: 15; -fx-text-fill: white" text="Email"/>
+                <TextField fx:id="txtEmail" minWidth="200"/>
             </HBox>
 
             <HBox alignment="CENTER" minWidth="500" spacing="25">
-                <Label minWidth="90" style="-fx-font-size: 15; -fx-text-fill: white" text="Address" />
-                <TextField fx:id="txtAddress" minWidth="200" />
+                <Label minWidth="90" style="-fx-font-size: 15; -fx-text-fill: white" text="Address"/>
+                <TextField fx:id="txtAddress" minWidth="200"/>
             </HBox>
 
             <HBox alignment="CENTER" minWidth="500" spacing="25">
-                <Label minWidth="90" style="-fx-font-size: 15; -fx-text-fill: white" text="Gender" />
-                <ChoiceBox fx:id="txtGender"  minWidth="200">
+                <Label minWidth="90" style="-fx-font-size: 15; -fx-text-fill: white" text="Gender"/>
+                <ChoiceBox fx:id="txtGender" minWidth="200">
                     <items>
-                        <FXCollections  fx:factory="observableArrayList">
-                            <String fx:value="Nam" />
-                            <String fx:value="Nữ" />
-                            <String fx:value="Khác" />
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Nam"/>
+                            <String fx:value="Nữ"/>
+                            <String fx:value="Khác"/>
                         </FXCollections>
                     </items>
                 </ChoiceBox>
             </HBox>
 
             <HBox alignment="CENTER" minWidth="500">
-                <Button alignment="CENTER" maxHeight="15" minWidth="320" style="-fx-background-color: black; -fx-text-fill: white; -fx-font-size: 15" text="Sign Up" onAction="#signup" />
+                <Button alignment="CENTER" maxHeight="15" minWidth="320"
+                        style="-fx-background-color: black; -fx-text-fill: white; -fx-font-size: 15" text="Sign Up"
+                        onAction="#signup"/>
             </HBox>
 
             <HBox alignment="CENTER" minWidth="500">
-                <Label fx:id="error"  style="-fx-text-fill:#FF3300 ; -fx-font-size: 16"/>
+                <Label fx:id="error" style="-fx-text-fill:#FF3300 ; -fx-font-size: 16"/>
             </HBox>
 
         </VBox>
