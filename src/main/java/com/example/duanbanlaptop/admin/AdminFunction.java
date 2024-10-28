@@ -1,31 +1,24 @@
 package com.example.duanbanlaptop.admin;
 
-import com.example.duanbanlaptop.Connect;
-import com.example.duanbanlaptop.Object.Products;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.io.IOException;
 
 public class AdminFunction {
     @FXML
+    private VBox content;
+    @FXML
     private Label title;
 
-    public void product() {
+    public void product() throws IOException {
         title.setText("Product Management");
+        loadSubScene("/com/example/duanbanlaptop/view/manageProductUI.fxml");
+
     }
 
     public void order() {
@@ -40,5 +33,23 @@ public class AdminFunction {
 
     public void customer() {
         title.setText("Customer Management");
+    }
+
+
+
+    public void loadSubScene(String fxmlFile) {
+        try {
+            content.getChildren().clear();
+            FXMLLoader fxmlLoader =new FXMLLoader(getClass().getResource(fxmlFile));
+            Parent parent = fxmlLoader.load();
+           content.getChildren().add(parent);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void backHome() {
+        title.setText("Hello Admin");
+        content.getChildren().clear();
     }
 }

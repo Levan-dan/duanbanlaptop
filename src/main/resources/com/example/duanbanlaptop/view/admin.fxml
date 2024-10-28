@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.duanbanlaptop.admin.AdminFunction"
-            minHeight="600.0" minWidth="1000.0">
+<BorderPane minHeight="600.0" minWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.14-internal"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanbanlaptop.admin.AdminFunction">
 
     <top>
-        <HBox  minHeight="100">
-            <HBox alignment="CENTER" style="-fx-border-color: transparent #006600 transparent transparent ; -fx-background-color: #009966" minWidth="200">
-                <HBox minWidth="100" minHeight="90">
-                    <ImageView fx:id="imageView" fitWidth="100" fitHeight="95" preserveRatio="true">
+        <HBox minHeight="100">
+            <HBox alignment="CENTER" minWidth="200"
+                  style="-fx-border-color: transparent #006600 transparent transparent ; -fx-background-color: #009966">
+                <HBox minHeight="90" minWidth="100">
+                    <ImageView fx:id="imageView" fitHeight="95" fitWidth="100" preserveRatio="true">
                         <image>
                             <Image url="https://wallpapers.com/images/featured/admin-png-2ic0yzgeefmj9okw.jpg"/>
                         </image>
@@ -25,30 +20,39 @@
                 </HBox>
             </HBox>
 
-            <HBox minWidth="800" alignment="CENTER" style="-fx-border-color: #009966 ; -fx-background-color: #009966" >
-                    <Label fx:id="title" text="Hello Admin" style="-fx-font-weight: bold; -fx-font-size: 30"/>
+            <HBox alignment="CENTER" minWidth="800" style="-fx-border-color: #009966 ; -fx-background-color: #009966">
+                <Label fx:id="title" style="-fx-font-weight: bold; -fx-font-size: 30" text="Hello Admin"/>
             </HBox>
         </HBox>
 
 
-
     </top>
     <left>
-        <VBox style="-fx-border-color: #006600 transparent transparent   transparent; -fx-background-color:#009966" minWidth="200" alignment="TOP_CENTER" spacing="45">
-            <Label  alignment="CENTER" text="Management" style="-fx-font-size: 20; -fx-text-fill: white"/>
-            <Button onAction="#product"  text="Product" minWidth="170" style="-fx-font-size: 15; -fx-background-color: #0066FF; -fx-text-fill: white" />
-            <Button onAction="#order"  text="Orders" minWidth="170" style="-fx-font-size: 15; -fx-background-color: #0066FF; -fx-text-fill: white"/>
-            <Button onAction="#bill"  text="Bill" minWidth="170" style="-fx-font-size: 15; -fx-background-color: #0066FF; -fx-text-fill: white"/>
-            <Button onAction="#customer"  text="Customer" minWidth="170" style="-fx-font-size: 15; -fx-background-color: #0066FF; -fx-text-fill: white"/>
+        <VBox alignment="TOP_CENTER" minWidth="200" spacing="45"
+              style="-fx-border-color: #006600 transparent transparent   transparent; -fx-background-color:#009966">
+            <Label alignment="CENTER" style="-fx-font-size: 20; -fx-text-fill: white" text="Management" />
+
+            <ImageView fitHeight="45" fitWidth="40" preserveRatio="true" onMouseClicked="#backHome">
+                <image>
+                    <Image url="https://www.freepnglogos.com/uploads/logo-home-png/chimney-home-icon-transparent-1.png"/>
+                </image>
+            </ImageView>
+
+            <Button minWidth="170" onAction="#product"
+                    style="-fx-font-size: 15; -fx-background-color: #0066FF; -fx-text-fill: white" text="Product"/>
+
+            <Button minWidth="170" onAction="#order"
+                    style="-fx-font-size: 15; -fx-background-color: #0066FF; -fx-text-fill: white" text="Orders"/>
+            <Button minWidth="170" onAction="#bill"
+                    style="-fx-font-size: 15; -fx-background-color: #0066FF; -fx-text-fill: white" text="Bill"/>
+            <Button minWidth="170" onAction="#customer"
+                    style="-fx-font-size: 15; -fx-background-color: #0066FF; -fx-text-fill: white" text="Customer"/>
 
         </VBox>
     </left>
 
     <center>
-        <VBox fx:id="content" style=" -fx-background-image: url('https://thuthuatnhanh.com/wp-content/uploads/2020/09/tai-anh-nen-cong-nghe-cho-pc.jpg'); -fx-background-size: 799 350" spacing="30" maxWidth="799" maxHeight="350">
-
-
-
+        <VBox alignment="TOP_CENTER" fx:id="content"    style=" -fx-background-image: url('https://cdn.tgdd.vn/Files/2020/09/20/1291843/sb-blog-programming_800x450.jpg'); -fx-background-size: 799 500">
 
         </VBox>
     </center>
