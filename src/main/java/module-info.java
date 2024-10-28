@@ -4,9 +4,12 @@ module com.example.duanbanlaptop {
     requires java.sql;
     requires java.desktop;
 
-
+    exports com.example.duanbanlaptop.admin to javafx.fxml;
     opens com.example.duanbanlaptop to javafx.fxml;
     exports com.example.duanbanlaptop;
     exports com.example.duanbanlaptop.function;
     opens com.example.duanbanlaptop.function to javafx.fxml;
+    opens com.example.duanbanlaptop.admin to javafx.fxml;
+    opens com.example.duanbanlaptop.Object to javafx.base;
+
 }

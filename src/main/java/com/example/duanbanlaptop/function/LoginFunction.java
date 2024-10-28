@@ -36,7 +36,7 @@ public class LoginFunction {
         transitionFunction.transition("view/signup.fxml");
     }
 
-   public void login() throws SQLException {
+   public void login() throws SQLException, IOException {
         String username = txtUsername.getText();
         String password = txtPassword.getText();
 
@@ -57,7 +57,10 @@ public class LoginFunction {
             if(resultSet.next()){
                 int id = resultSet.getInt("idUser");
                 String role = resultSet.getString("role");
-                System.out.println("Thanh vien dang nhap thanh cong co id la : " + id + " va vai tro la : " + role);
+                if(role.equalsIgnoreCase("admin")){
+                    TransitionFunction transitionFunction = new TransitionFunction();
+                    transitionFunction.transition("view/admin.fxml");
+                }
             }else {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setContentText("Incorrect password or username!");
