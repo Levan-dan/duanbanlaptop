@@ -8,7 +8,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.duanbanlaptop.admin.AdminFunction" >
+            fx:controller="com.example.duanbanlaptop.admin.PutDataIntoTableView" >
     <VBox spacing="30" minWidth="799" minHeight="360">
 
     <VBox alignment="CENTER">
