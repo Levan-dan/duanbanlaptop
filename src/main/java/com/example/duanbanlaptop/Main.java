@@ -1,6 +1,7 @@
 package com.example.duanbanlaptop;
 
 
+import com.example.duanbanlaptop.admin.AdminFunction;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +16,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         this.stage = stage;
-        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("view/login.fxml"));
+        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("view/admin.fxml"));
         Scene scene = new Scene(fxmlLoader);
         stage.setTitle("login");
         stage.setScene(scene);
@@ -24,7 +25,7 @@ public class Main extends Application {
 
 
     public static  void main(String[] args) throws SQLException {
-       launch(args);
+    launch(args);
 
     }
 
