@@ -20,6 +20,7 @@
                 </HBox>
             </HBox>
 
+
             <HBox alignment="CENTER" minWidth="800" style="-fx-border-color: #009966 ; -fx-background-color: #009966">
                 <Label fx:id="title" style="-fx-font-weight: bold; -fx-font-size: 30" text="Hello Admin"/>
             </HBox>
