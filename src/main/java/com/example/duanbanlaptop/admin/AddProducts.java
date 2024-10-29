@@ -1,17 +1,20 @@
 package com.example.duanbanlaptop.admin;
 
 import com.example.duanbanlaptop.Connect;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Optional;
 
 
 public class AddProducts {
     @FXML
-   private TextField nameproduct;
+    private TextField nameproduct;
     @FXML
     private TextField describe;
     @FXML
@@ -23,21 +26,13 @@ public class AddProducts {
     @FXML
     private TextField imadeURL;
 
-
-
-
-
     public void add() throws SQLException {
         String name = nameproduct.getText();
         String describeProduct = describe.getText();
         String unitProduct = unit.getText();
         String imadeURLProduct = imadeURL.getText();
-        double priceProduct = Double.parseDouble( price.getText());
-        int stockProduct = Integer.parseInt( stock.getText());
-
-
-
-
+        double priceProduct = Double.parseDouble(price.getText());
+        int stockProduct = Integer.parseInt(stock.getText());
 
         Connect conn = new Connect();
         Connection connection = conn.connect();
@@ -56,4 +51,14 @@ public class AddProducts {
             System.out.println("Them thanh cong");
         }
     }
-}
+
+
+
+
+
+
+    }
+
+
+
+

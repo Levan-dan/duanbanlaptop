@@ -1,14 +1,13 @@
 package com.example.duanbanlaptop.admin;
+
 import com.example.duanbanlaptop.Connect;
 import com.example.duanbanlaptop.Object.Products;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -17,6 +16,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 
 
 public class PutDataIntoTableView {
@@ -38,7 +38,7 @@ public class PutDataIntoTableView {
     private TableColumn<Products, Integer> columnStock;
 
     @FXML
-    public void initialize(){
+    public void initialize() {
         columnId.setCellValueFactory(new PropertyValueFactory<>("idProduct"));
         columnName.setCellValueFactory(new PropertyValueFactory<>("nameProduct"));
         columnDescribe.setCellValueFactory(new PropertyValueFactory<>("describe"));
@@ -47,6 +47,7 @@ public class PutDataIntoTableView {
 
         columnImage.setCellFactory(column -> new TableCell<Products, String>() {
             private final ImageView imageView = new ImageView();
+
             @Override
             protected void updateItem(String imagePath, boolean empty) {
                 super.updateItem(imagePath, empty);
@@ -66,10 +67,9 @@ public class PutDataIntoTableView {
         columnPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
         columnStock.setCellValueFactory(new PropertyValueFactory<>("stock"));
 
-        // Lấy dữ liệu từ cơ sở dữ liệu và đặt vào bảng
         try {
             ObservableList<Products> data = getDataFromDatabase();
-            tableView.setItems(data);  // Đặt dữ liệu vào bảng
+            tableView.setItems(data);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -84,7 +84,6 @@ public class PutDataIntoTableView {
         PreparedStatement preparedStatement = conn.prepareStatement(query);
         ResultSet rt = preparedStatement.executeQuery();
 
-        // Sử dụng vòng lặp để duyệt qua từng dòng kết quả
         while (rt.next()) {
             int idProduct = rt.getInt("idProduct");
             String nameProduct = rt.getString("nameProduct");
@@ -94,16 +93,50 @@ public class PutDataIntoTableView {
             double price = rt.getDouble("price");
             int stock = rt.getInt("stock");
 
-            // Tạo đối tượng Products và thêm vào danh sách
             Products product = new Products(idProduct, nameProduct, describe, unit, image, price, stock);
             productList.add(product);
         }
 
-        // Đóng các tài nguyên sau khi hoàn thành
         rt.close();
         preparedStatement.close();
         conn.close();
 
         return productList;
+    }
+
+
+    public void delete() throws SQLException {
+        TextInputDialog inputDialog = new TextInputDialog();
+        inputDialog.setTitle("Delete ");
+        inputDialog.setHeaderText("Please enter the product code you want to delete ");
+        inputDialog.setContentText("idProduct");
+        Optional<String> result = inputDialog.showAndWait();
+
+        int number;
+        if (result.isPresent()){
+            try{
+                 number = Integer.parseInt(result.get());
+            }catch (NumberFormatException e){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Please enter the correct format ");
+                alert.showAndWait();
+                return;
+            }
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setContentText("Are you sure you want to delete this product");
+
+            Optional<ButtonType> result1 = alert.showAndWait();
+            if (result1.isPresent() && result1.get() == ButtonType.OK){
+
+                DeleteProduct deleteProduct = new DeleteProduct();
+                deleteProduct.deleteProduct(number);
+
+                tableView.getItems().removeIf(product -> product.getIdProduct() == number);
+
+            }
+        }
+
     }
 }
