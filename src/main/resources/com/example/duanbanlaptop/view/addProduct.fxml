@@ -12,7 +12,12 @@
       <TextField fx:id="price" layoutX="117.0" layoutY="157.0" prefHeight="26.0" prefWidth="174.0" promptText="price" />
       <TextField fx:id="stock"  layoutX="117.0" layoutY="207.0" prefHeight="26.0" prefWidth="174.0" promptText="stock" />
       <TextField fx:id="imadeURL" layoutX="117.0" layoutY="262.0" prefHeight="26.0" prefWidth="174.0" promptText="imade URL" />
+
       <Button onAction="#add" layoutX="145.0" layoutY="329.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="117.0" style="-fx-background-radius: 90; -fx-background-color: #33CC00; -fx-text-fill: white" text="Done" />
+
+     
+
+
 
    </children>
 </AnchorPane>

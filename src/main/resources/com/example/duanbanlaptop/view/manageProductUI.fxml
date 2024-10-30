@@ -27,7 +27,7 @@
     <HBox spacing="70" alignment="CENTER">
         <Button onAction="#addProduct" text="Add" style="-fx-background-color: #33CC00; -fx-font-size: 13; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0.5, 0, 2) " minWidth="90"/>
         <Button text="Edit" style="-fx-background-color: #FFCC00; -fx-font-size: 13; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0.5, 0, 2)" minWidth="90"/>
-        <Button text="Delete" style="-fx-background-color: #CC0000; -fx-font-size: 13; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0.5, 0, 2)" minWidth="90"/>
+        <Button onAction="#delete" text="Delete" style="-fx-background-color: #CC0000; -fx-font-size: 13; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0.5, 0, 2)" minWidth="90"/>
     </HBox>
     </VBox>
 

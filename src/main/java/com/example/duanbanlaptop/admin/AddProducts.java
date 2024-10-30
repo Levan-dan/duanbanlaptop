@@ -1,15 +1,21 @@
 package com.example.duanbanlaptop.admin;
 
 import com.example.duanbanlaptop.Connect;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+
 import javafx.stage.Stage;
+
+import javafx.scene.control.TextInputDialog;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Optional;
 
 public class AddProducts {
     @FXML
@@ -25,11 +31,13 @@ public class AddProducts {
     @FXML
     private TextField imadeURL;
 
+
     public void add() {
         String name = nameproduct.getText();
         String describeProduct = describe.getText();
         String unitProduct = unit.getText();
         String imadeURLProduct = imadeURL.getText();
+
         double priceProduct = 0;
         int stockProduct = 0;
 
@@ -43,6 +51,7 @@ public class AddProducts {
             alert.showAndWait();
             return;
         }
+
 
         if (name.isEmpty() || describeProduct.isEmpty() || unitProduct.isEmpty() || imadeURLProduct.isEmpty() || priceProduct < 0 || stockProduct < 0) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -79,4 +88,14 @@ public class AddProducts {
             }
         }
     }
-}
+
+
+
+
+
+
+    }
+
+
+
+

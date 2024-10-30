@@ -1,4 +1,5 @@
 package com.example.duanbanlaptop.admin;
+
 import com.example.duanbanlaptop.Connect;
 import com.example.duanbanlaptop.Object.Products;
 import com.example.duanbanlaptop.function.TransitionFunction;
@@ -8,12 +9,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -25,6 +28,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 
 
 public class PutDataIntoTableView {
@@ -46,7 +50,7 @@ public class PutDataIntoTableView {
     private TableColumn<Products, Integer> columnStock;
 
     @FXML
-    public void initialize(){
+    public void initialize() {
         columnId.setCellValueFactory(new PropertyValueFactory<>("idProduct"));
         columnName.setCellValueFactory(new PropertyValueFactory<>("nameProduct"));
         columnDescribe.setCellValueFactory(new PropertyValueFactory<>("describe"));
@@ -55,6 +59,7 @@ public class PutDataIntoTableView {
 
         columnImage.setCellFactory(column -> new TableCell<Products, String>() {
             private final ImageView imageView = new ImageView();
+
             @Override
             protected void updateItem(String imagePath, boolean empty) {
                 super.updateItem(imagePath, empty);
@@ -74,10 +79,9 @@ public class PutDataIntoTableView {
         columnPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
         columnStock.setCellValueFactory(new PropertyValueFactory<>("stock"));
 
-        // Lấy dữ liệu từ cơ sở dữ liệu và đặt vào bảng
         try {
             ObservableList<Products> data = getDataFromDatabase();
-            tableView.setItems(data);  // Đặt dữ liệu vào bảng
+            tableView.setItems(data);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -92,7 +96,6 @@ public class PutDataIntoTableView {
         PreparedStatement preparedStatement = conn.prepareStatement(query);
         ResultSet rt = preparedStatement.executeQuery();
 
-        // Sử dụng vòng lặp để duyệt qua từng dòng kết quả
         while (rt.next()) {
             int idProduct = rt.getInt("idProduct");
             String nameProduct = rt.getString("nameProduct");
@@ -102,18 +105,17 @@ public class PutDataIntoTableView {
             double price = rt.getDouble("price");
             int stock = rt.getInt("stock");
 
-            // Tạo đối tượng Products và thêm vào danh sách
             Products product = new Products(idProduct, nameProduct, describe, unit, image, price, stock);
             productList.add(product);
         }
 
-        // Đóng các tài nguyên sau khi hoàn thành
         rt.close();
         preparedStatement.close();
         conn.close();
 
         return productList;
     }
+
 
     public void addProduct() throws IOException {
         FXMLLoader fxmlLoader =new FXMLLoader(getClass().getResource("/com/example/duanbanlaptop/view/addProduct.fxml"));
@@ -126,5 +128,8 @@ public class PutDataIntoTableView {
         // Đặt chế độ cho Stage mới
         addProductStage.initModality(Modality.APPLICATION_MODAL); // Chặn tương tác với Stage khác
         addProductStage.showAndWait();
+
+
+  
     }
 }
