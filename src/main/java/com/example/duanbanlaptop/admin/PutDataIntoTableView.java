@@ -132,4 +132,39 @@ public class PutDataIntoTableView {
 
   
     }
+
+    public void delete() throws SQLException {
+        TextInputDialog inputDialog = new TextInputDialog();
+        inputDialog.setTitle("Delete ");
+        inputDialog.setHeaderText("Please enter the product code you want to delete ");
+        inputDialog.setContentText("idProduct");
+        Optional<String> result = inputDialog.showAndWait();
+
+        int number;
+        if (result.isPresent()){
+            try{
+                number = Integer.parseInt(result.get());
+            }catch (NumberFormatException e){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Please enter the correct format ");
+                alert.showAndWait();
+                return;
+            }
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setContentText("Are you sure you want to delete this product");
+
+            Optional<ButtonType> result1 = alert.showAndWait();
+            if (result1.isPresent() && result1.get() == ButtonType.OK){
+
+                DeleteProduct deleteProduct = new DeleteProduct();
+                deleteProduct.deleteProduct(number);
+
+                tableView.getItems().removeIf(product -> product.getIdProduct() == number);
+
+            }
+        }
+
+    }
 }
