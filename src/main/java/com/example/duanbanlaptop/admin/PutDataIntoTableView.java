@@ -1,10 +1,15 @@
 package com.example.duanbanlaptop.admin;
 import com.example.duanbanlaptop.Connect;
 import com.example.duanbanlaptop.Object.Products;
+import com.example.duanbanlaptop.function.TransitionFunction;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -12,7 +17,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -105,5 +113,18 @@ public class PutDataIntoTableView {
         conn.close();
 
         return productList;
+    }
+
+    public void addProduct() throws IOException {
+        FXMLLoader fxmlLoader =new FXMLLoader(getClass().getResource("/com/example/duanbanlaptop/view/addProduct.fxml"));
+        Parent parent = fxmlLoader.load();
+
+        Stage addProductStage = new Stage();
+        addProductStage.setTitle("Add Product");
+        addProductStage.setScene(new Scene(parent));
+
+        // Đặt chế độ cho Stage mới
+        addProductStage.initModality(Modality.APPLICATION_MODAL); // Chặn tương tác với Stage khác
+        addProductStage.showAndWait();
     }
 }
