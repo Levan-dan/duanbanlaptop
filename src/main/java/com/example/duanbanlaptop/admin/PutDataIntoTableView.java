@@ -2,16 +2,28 @@ package com.example.duanbanlaptop.admin;
 
 import com.example.duanbanlaptop.Connect;
 import com.example.duanbanlaptop.Object.Products;
+import com.example.duanbanlaptop.function.TransitionFunction;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -105,38 +117,19 @@ public class PutDataIntoTableView {
     }
 
 
-    public void delete() throws SQLException {
-        TextInputDialog inputDialog = new TextInputDialog();
-        inputDialog.setTitle("Delete ");
-        inputDialog.setHeaderText("Please enter the product code you want to delete ");
-        inputDialog.setContentText("idProduct");
-        Optional<String> result = inputDialog.showAndWait();
+    public void addProduct() throws IOException {
+        FXMLLoader fxmlLoader =new FXMLLoader(getClass().getResource("/com/example/duanbanlaptop/view/addProduct.fxml"));
+        Parent parent = fxmlLoader.load();
 
-        int number;
-        if (result.isPresent()){
-            try{
-                 number = Integer.parseInt(result.get());
-            }catch (NumberFormatException e){
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setContentText("Please enter the correct format ");
-                alert.showAndWait();
-                return;
-            }
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Confirmation");
-            alert.setContentText("Are you sure you want to delete this product");
+        Stage addProductStage = new Stage();
+        addProductStage.setTitle("Add Product");
+        addProductStage.setScene(new Scene(parent));
 
-            Optional<ButtonType> result1 = alert.showAndWait();
-            if (result1.isPresent() && result1.get() == ButtonType.OK){
+        // Đặt chế độ cho Stage mới
+        addProductStage.initModality(Modality.APPLICATION_MODAL); // Chặn tương tác với Stage khác
+        addProductStage.showAndWait();
 
-                DeleteProduct deleteProduct = new DeleteProduct();
-                deleteProduct.deleteProduct(number);
 
-                tableView.getItems().removeIf(product -> product.getIdProduct() == number);
-
-            }
-        }
-
+  
     }
 }
