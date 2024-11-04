@@ -14,13 +14,14 @@
     <VBox alignment="CENTER">
         <TableView fx:id="tableView" minWidth="799" minHeight="350">
             <columns>
-                <TableColumn fx:id="columnId" minWidth="80" text="idProduct"/>
-                <TableColumn fx:id="columnName" minWidth="150" text="nameProduct"/>
-                <TableColumn fx:id="columnDescribe" minWidth="210" text="describe"/>
-                <TableColumn fx:id="columnUnit" minWidth="80" text="unit"/>
-                <TableColumn fx:id="columnImage" minWidth="114" text="image"/>
-                <TableColumn fx:id="columnPrice" minWidth="80" text="price"/>
-                <TableColumn fx:id="columnStock" minWidth="84" text="stock"/>
+                <TableColumn fx:id="columnId" minWidth="80" text="STT"/>
+                <TableColumn fx:id="columnName" minWidth="150" text="Name product"/>
+                <TableColumn fx:id="columnImage" minWidth="114" text="Image"/>
+                <TableColumn fx:id="columnDescribe" minWidth="210" text="Describe"/>
+                <TableColumn fx:id="columnUnit" minWidth="80" text="Unit"/>
+
+                <TableColumn fx:id="columnPrice" minWidth="80" text="Price"/>
+                <TableColumn fx:id="columnStock" minWidth="84" text="Stock"/>
             </columns>
         </TableView>
     </VBox>
