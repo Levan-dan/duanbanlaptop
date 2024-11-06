@@ -7,6 +7,8 @@ module com.example.duanbanlaptop {
     exports com.example.duanbanlaptop.admin to javafx.fxml;
     opens com.example.duanbanlaptop to javafx.fxml;
     exports com.example.duanbanlaptop;
+    exports com.example.duanbanlaptop.user;
+    opens com.example.duanbanlaptop.user to javafx.fxml;
     exports com.example.duanbanlaptop.function;
     opens com.example.duanbanlaptop.function to javafx.fxml;
 
