@@ -49,6 +49,10 @@ public class PutDataIntoTableView {
     @FXML
     private TableColumn<Products, Integer> columnStock;
 
+
+
+
+
     @FXML
     public void initialize() {
         columnId.setCellValueFactory(new PropertyValueFactory<>("idProduct"));
@@ -167,4 +171,60 @@ public class PutDataIntoTableView {
         }
 
     }
+    public void edit(ActionEvent event) throws SQLException, IOException {
+        TextInputDialog inputDialog = new TextInputDialog();
+        inputDialog.setTitle("Edit");
+        inputDialog.setHeaderText("Please enter the product code you want to edit");
+        inputDialog.setContentText("idProduct");
+        Optional<String> result = inputDialog.showAndWait();
+
+        int number;
+        if (result.isPresent()) {
+            try {
+                number = Integer.parseInt(result.get());
+            } catch (NumberFormatException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Please enter the correct format");
+                alert.showAndWait();
+                return;
+            }
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setContentText("Are you sure you want to edit this product");
+
+            Optional<ButtonType> result1 = alert.showAndWait();
+            if (result1.isPresent() && result1.get() == ButtonType.OK) {
+                GetProductInfo getProductInfo = new GetProductInfo();
+                Products products = getProductInfo.getProductInfo(number);
+
+                if (products != null) {
+                    System.out.println(products.getNameProduct());
+
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/duanbanlaptop/view/edit.fxml"));
+                    Parent parent = fxmlLoader.load();
+
+                    EditProductAdmin editProductAdmin = fxmlLoader.getController();
+                    editProductAdmin.setIdProduct(number);
+
+                    Stage addProductStage = new Stage();
+                    addProductStage.setTitle("Edit Product");
+                    addProductStage.setScene(new Scene(parent));
+
+                    addProductStage.initModality(Modality.APPLICATION_MODAL);
+                    addProductStage.showAndWait();
+                } else {
+                    Alert alert1 = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert1.setTitle("Confirmation");
+                    alert1.setContentText("NOT FOUND IDPRODUCT");
+                    alert1.showAndWait();
+                }
+            }
+        }
+    }
+
+
+
+
 }

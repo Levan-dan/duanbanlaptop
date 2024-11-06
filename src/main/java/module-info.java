@@ -3,6 +3,7 @@ module com.example.duanbanlaptop {
     requires javafx.fxml;
     requires java.sql;
     requires java.desktop;
+    requires mysql.connector.j;
 
     exports com.example.duanbanlaptop.admin to javafx.fxml;
     opens com.example.duanbanlaptop to javafx.fxml;
