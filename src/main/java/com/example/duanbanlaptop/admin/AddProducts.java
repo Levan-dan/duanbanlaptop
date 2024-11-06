@@ -31,6 +31,12 @@ public class AddProducts {
     @FXML
     private TextField imadeURL;
 
+     public   void initialize() {
+         unit.setText("piece");
+         unit.setEditable(false);
+         unit.setDisable(true);
+     }
+
 
     public void add() {
         String name = nameproduct.getText();
@@ -90,11 +96,7 @@ public class AddProducts {
     }
 
 
-
-
-
-
-    }
+}
 
 
 

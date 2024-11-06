@@ -17,7 +17,6 @@ public class EditProductAdmin {
     public Button editButton;
     @FXML
     private TextField nameproduct1;
-
     @FXML
     private TextField describe1;
     @FXML
@@ -33,6 +32,12 @@ public class EditProductAdmin {
 
     public void setIdProduct(int idProduct) {
         this.idProduct = idProduct;
+    }
+
+    public void initialize() {
+        unit1.setText("piece");
+        unit1.setEditable(false);
+        unit1.setDisable(true);
     }
 
     @FXML
@@ -52,11 +57,20 @@ public class EditProductAdmin {
         PreparedStatement update = connection.prepareStatement(query);
         update.setString(1, name);
         update.setString(2, describeProduct);
+
         update.setString(3, unitProduct);
         update.setString(4, priceProduct);
         update.setString(5, stockProduct);
         update.setString(6, imadeURLProduct);
-        update.setInt(7, idProduct );
+        update.setInt(7, idProduct);
+
+        if (name.isEmpty() || describeProduct.isEmpty() || unitProduct.isEmpty() || priceProduct.isEmpty()
+                || stockProduct.isEmpty() || imadeURLProduct.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Please complete the information for all fields");
+            alert.showAndWait();
+            return;
+        }
 
         int rowsUpdated = update.executeUpdate();
         if (rowsUpdated > 0) {
