@@ -41,7 +41,7 @@ public class AddProducts {
         double priceProduct = 0;
         int stockProduct = 0;
 
-        // Kiểm tra và chuyển đổi giá trị price
+
         try {
             priceProduct = Double.parseDouble(price.getText());
             stockProduct = Integer.parseInt(stock.getText());
@@ -81,7 +81,7 @@ public class AddProducts {
                 }
 
             } catch (SQLException e) {
-                e.printStackTrace(); // In ra lỗi nếu có
+                e.printStackTrace();
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("Có lỗi xảy ra khi thêm sản phẩm vào cơ sở dữ liệu.");
                 alert.showAndWait();

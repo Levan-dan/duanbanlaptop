@@ -20,6 +20,15 @@ public class Products {
         this.stock = stock;
     }
 
+    public Products(String nameProduct, String describe, String unit, String image, double price, int stock) {
+        this.nameProduct = nameProduct;
+        this.describe = describe;
+        this.unit = unit;
+        this.image = image;
+        this.price = price;
+        this.stock = stock;
+    }
+
     public int getIdProduct() {
         return idProduct;
     }

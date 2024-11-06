@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="496.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanbanlaptop.admin.EditProductAdmin">
+   <children>
+      <TextField fx:id="nameproduct1" layoutX="98.0" layoutY="28.0" prefHeight="26.0" prefWidth="274.0" promptText="name product" />
+      <TextField fx:id="describe1" layoutX="98.0" layoutY="75.0" prefHeight="26.0" prefWidth="274.0" promptText="describe" />
+      <TextField fx:id="unit1" layoutX="101.0" layoutY="122.0" prefHeight="26.0" prefWidth="274.0" promptText="unit" />
+      <TextField fx:id="price1" layoutX="101.0" layoutY="166.0" prefHeight="26.0" prefWidth="274.0" promptText="price" />
+      <TextField fx:id="stock1" layoutX="98.0" layoutY="211.0" prefHeight="26.0" prefWidth="274.0" promptText="stock" />
+      <TextField fx:id="imadeURL1" layoutX="98.0" layoutY="255.0" prefHeight="26.0" prefWidth="274.0" promptText="imade URL" />
+      <Button fx:id="editButton" onAction="#edit" layoutX="187.0" layoutY="326.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="102.0" style="-fx-background-radius: 90;" text="Done" />
+   </children>
+</AnchorPane>
