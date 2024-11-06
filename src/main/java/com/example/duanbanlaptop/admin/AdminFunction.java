@@ -38,6 +38,7 @@ public class AdminFunction {
 
 
 
+
     public void loadSubScene(String fxmlFile) {
         try {
             content.getChildren().clear();
