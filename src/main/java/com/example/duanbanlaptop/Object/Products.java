@@ -29,6 +29,13 @@ public class Products {
         this.stock = stock;
     }
 
+    public Products( String image, String nameProduct, double price, int stock) {
+        this.nameProduct = nameProduct;
+        this.image = image;
+        this.price = price;
+        this.stock = stock;
+    }
+
     public int getIdProduct() {
         return idProduct;
     }

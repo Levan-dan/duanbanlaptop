@@ -69,16 +69,17 @@
             <content >
                 <TilePane hgap="90" vgap="30" alignment="CENTER_LEFT" >
 
-                    <VBox alignment="CENTER" spacing="10" style="-fx-border-color: black; -fx-border-radius: 20 " minWidth="150" minHeight="240" >
-                        <ImageView fitWidth="120" fitHeight="100" preserveRatio="true">
-                            <image>
-                                <Image url="https://seeklogo.com/images/W/windows-vista-icon-logo-427D6813BD-seeklogo.com.png"/>
-                            </image>
-                        </ImageView>
-                        <Label text="Name"/>
-                        <Label text="Price"/>
-                        <Button text="Buy"/>
-                    </VBox>
+                    <FlowPane fx:id="iterm" alignment="CENTER_LEFT"  minWidth="150" minHeight="260" >
+<!--                        <ImageView fitWidth="120" fitHeight="140" preserveRatio="true" >-->
+<!--                            <image>-->
+<!--                                <Image fx:id="imageViewUser" url="https://seeklogo.com/images/W/windows-vista-icon-logo-427D6813BD-seeklogo.com.png"/>-->
+<!--                            </image>-->
+<!--                        </ImageView>-->
+<!--                        <Label fx:id="nameView" text="Name"/>-->
+<!--                        <Label fx:id="priceView" text="Price"/>-->
+<!--                        <Label fx:id="stockView" text="Quantity"/>-->
+<!--                        <Button text="Buy"/>-->
+                    </FlowPane>
 
                 </TilePane>
             </content>
