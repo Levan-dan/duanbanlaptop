@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanbanlaptop.admin.PutDataIntoTableView">
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanbanlaptop.admin.PutDataIntoTableView">
     <VBox minHeight="360" minWidth="799" spacing="30">
 
         <TableView fx:id="tableView" minHeight="350" minWidth="799">

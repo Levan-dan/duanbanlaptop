@@ -60,6 +60,9 @@ public class LoginFunction {
                 if(role.equalsIgnoreCase("admin")){
                     TransitionFunction transitionFunction = new TransitionFunction();
                     transitionFunction.transition("view/admin.fxml");
+                }else{
+                    TransitionFunction transitionFunction = new TransitionFunction();
+                    transitionFunction.transition("view/homeUser.fxml");
                 }
             }else {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
