@@ -3,6 +3,7 @@ package com.example.duanbanlaptop.user;
 import com.example.duanbanlaptop.Connect;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -10,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,15 +23,18 @@ public class HomeUserController {
 
     @FXML
     private FlowPane iterm;
+
     @FXML
     private TextField searchField;
 
     @FXML
+    private Button onLaptop, onAccessory, onKeyboard;
+
+    @FXML
     public void initialize() throws SQLException {
-        getData(); // Load all products initially
+        getData();
     }
 
-    // Method to load all products
     public void getData() throws SQLException {
         iterm.setHgap(41);
         iterm.setVgap(30);
@@ -42,7 +47,7 @@ public class HomeUserController {
         Statement statement = conn.createStatement();
         ResultSet resultSet = statement.executeQuery(query);
 
-        iterm.getChildren().clear(); // Clear existing items before loading new data
+        iterm.getChildren().clear();
 
         while (resultSet.next()) {
             String imageUrl = resultSet.getString("image");
@@ -59,7 +64,6 @@ public class HomeUserController {
         conn.close();
     }
 
-    // Helper method to create a VBox for each product
     private VBox createProductBox(String imageUrl, String name, double price, int stock) {
         VBox vbox = new VBox(20);
         vbox.setAlignment(Pos.CENTER);
@@ -86,17 +90,34 @@ public class HomeUserController {
         return vbox;
     }
 
-    // Search button action to filter products by name
     @FXML
     private void onSearch() throws SQLException {
         String keyword = searchField.getText().trim();
-        List<VBox> searchResults = searchProductByName(keyword);
-
-        iterm.getChildren().clear(); // Clear current display
-        iterm.getChildren().addAll(searchResults); // Display search results
+        displayProductsByKeyword(keyword);
     }
 
-    // Method to search products by name
+    @FXML
+    private void onLaptop() throws SQLException {
+        displayProductsByKeyword("Laptop");
+    }
+
+    @FXML
+    private void onAccessory() throws SQLException {
+        displayProductsByKeyword("Accessory");
+    }
+
+    @FXML
+    private void onKeyboard() throws SQLException {
+        displayProductsByKeyword("Key");
+    }
+
+    private void displayProductsByKeyword(String keyword) throws SQLException {
+        List<VBox> searchResults = searchProductByName(keyword);
+        iterm.getChildren().clear();
+        iterm.getChildren().addAll(searchResults);
+    }
+
+    // Phương thức tìm kiếm sản phẩm theo tên
     private List<VBox> searchProductByName(String keyword) throws SQLException {
         List<VBox> results = new ArrayList<>();
         Connect connect = new Connect();
@@ -124,9 +145,10 @@ public class HomeUserController {
 
         return results;
     }
+
+
     @FXML
     private void onHome() throws SQLException {
-        // Gọi lại phương thức getData để tải lại tất cả sản phẩm
         getData();
     }
 
