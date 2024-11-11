@@ -1,17 +1,30 @@
 package com.example.duanbanlaptop.user;
 
 import com.example.duanbanlaptop.Connect;
+
+import com.example.duanbanlaptop.Object.Products;
+import com.example.duanbanlaptop.function.TransitionFunction;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -70,7 +83,7 @@ public class HomeUserController {
 
         ImageView imageView = new ImageView(new Image(imageUrl));
         imageView.setFitWidth(135);
-        imageView.setFitHeight(145);
+        imageView.setFitHeight(135);
 
         Rectangle clip = new Rectangle(135, 145);
         clip.setArcWidth(20);
@@ -79,14 +92,14 @@ public class HomeUserController {
 
         Label nameLabel = new Label(name);
         nameLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 12px; -fx-text-fill: #333333;");
-        Label priceLabel = new Label(price + " VND");
-        priceLabel.setStyle("-fx-text-fill: #ff0000;");
-        Label quantityLabel = new Label("Quantity: " + stock);
+        Label priceLabel = new Label(  priceUser + " VND");
+        Label quantityLabel = new Label("Quantity: " + stockUser);
+
 
         vbox.getChildren().addAll(imageView, nameLabel, priceLabel, quantityLabel);
         vbox.setStyle("-fx-border-color: black; -fx-border-radius: 15;");
-        vbox.setMinWidth(160);
-
+        vbox.setMinHeight(260);
+        iterm.getChildren().add(vbox);
         return vbox;
     }
 
@@ -151,5 +164,37 @@ public class HomeUserController {
     private void onHome() throws SQLException {
         getData();
     }
+
+    public void userInformation() throws IOException, SQLException {
+
+        FXMLLoader fxmlLoader =new FXMLLoader(getClass().getResource("/com/example/duanbanlaptop/view/admin-information.fxml"));
+        Parent parent = fxmlLoader.load();
+
+        Stage adminInformation = new Stage();
+        adminInformation.setTitle("Admin information");
+        adminInformation.setScene(new Scene(parent));
+
+        // Đặt chế độ cho Stage mới
+        adminInformation.initModality(Modality.APPLICATION_MODAL); // Chặn tương tác với Stage khác
+        adminInformation.showAndWait();
+
+    }
+
+    public void setting() throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/duanbanlaptop/view/setting.fxml"));
+        Parent parent = fxmlLoader.load();
+
+        Stage userSetting = new Stage();
+        userSetting.setTitle("Admin information");
+        userSetting.setScene(new Scene(parent));
+
+        // Đặt chế độ cho Stage mới
+        userSetting.initModality(Modality.APPLICATION_MODAL); // Chặn tương tác với Stage khác
+        userSetting.showAndWait();
+
+
+    }
+
 
 }

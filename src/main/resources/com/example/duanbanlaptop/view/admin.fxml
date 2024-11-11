@@ -12,7 +12,7 @@
             <HBox alignment="CENTER" minWidth="200"
                   style="-fx-border-color: transparent #006600 transparent transparent ; -fx-background-color: #009966">
                 <HBox minHeight="90" minWidth="100">
-                    <ImageView fx:id="imageView" fitHeight="95" fitWidth="100" preserveRatio="true">
+                    <ImageView  fitHeight="95" fitWidth="100" preserveRatio="true">
                         <image>
                             <Image url="https://wallpapers.com/images/featured/admin-png-2ic0yzgeefmj9okw.jpg"/>
                         </image>
@@ -29,7 +29,7 @@
 
     </top>
     <left>
-        <VBox alignment="TOP_CENTER" minWidth="200" spacing="45"
+        <VBox alignment="TOP_CENTER" minWidth="200" spacing="42"
               style="-fx-border-color: #006600 transparent transparent   transparent; -fx-background-color:#009966">
             <Label alignment="CENTER" style="-fx-font-size: 20; -fx-text-fill: white" text="Management" />
 
@@ -48,6 +48,8 @@
                     style="-fx-font-size: 15; -fx-background-color: #0066FF; -fx-text-fill: white" text="Bill"/>
             <Button minWidth="170" onAction="#customer"
                     style="-fx-font-size: 15; -fx-background-color: #0066FF; -fx-text-fill: white" text="Customer"/>
+            <Button minWidth="170" onAction="#logOut"
+                    style="-fx-font-size: 15; -fx-background-color: red; -fx-text-fill: white" text="Log out"/>
 
         </VBox>
     </left>
