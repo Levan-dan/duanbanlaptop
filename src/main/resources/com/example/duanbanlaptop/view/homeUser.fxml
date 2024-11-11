@@ -30,16 +30,22 @@
                     <Button text="Search" minWidth="45" style="-fx-background-color: #ff7337 ; -fx-text-fill: white"/>
                 </HBox>
 
-                <HBox minWidth="200" alignment="CENTER" spacing="40">
+                <HBox minWidth="200" alignment="CENTER" spacing="30">
                     <ImageView fitWidth="40" fitHeight="40" preserveRatio="true">
                         <image>
                             <Image url="https://cdn.pixabay.com/photo/2013/07/12/14/53/cart-148964_640.png"/>
                         </image>
                     </ImageView>
 
-                    <ImageView fitWidth="40" fitHeight="40" preserveRatio="true">
+                    <ImageView onMouseClicked="#userInformation" fitWidth="40" fitHeight="40" preserveRatio="true">
                         <image>
                             <Image url="https://iconape.com/wp-content/png_logo_vector/user-circle.png"/>
+                        </image>
+                    </ImageView>
+
+                    <ImageView onMouseClicked="#setting" fitWidth="40" fitHeight="40" preserveRatio="true">
+                        <image>
+                            <Image url="https://icons.veryicon.com/png/o/miscellaneous/ionicons-2/android-settings-2.png"/>
                         </image>
                     </ImageView>
                 </HBox>
@@ -70,15 +76,6 @@
                 <TilePane hgap="90" vgap="30" alignment="CENTER_LEFT" >
 
                     <FlowPane fx:id="iterm" alignment="CENTER_LEFT"  minWidth="150" minHeight="260" >
-<!--                        <ImageView fitWidth="120" fitHeight="140" preserveRatio="true" >-->
-<!--                            <image>-->
-<!--                                <Image fx:id="imageViewUser" url="https://seeklogo.com/images/W/windows-vista-icon-logo-427D6813BD-seeklogo.com.png"/>-->
-<!--                            </image>-->
-<!--                        </ImageView>-->
-<!--                        <Label fx:id="nameView" text="Name"/>-->
-<!--                        <Label fx:id="priceView" text="Price"/>-->
-<!--                        <Label fx:id="stockView" text="Quantity"/>-->
-<!--                        <Button text="Buy"/>-->
                     </FlowPane>
 
                 </TilePane>
