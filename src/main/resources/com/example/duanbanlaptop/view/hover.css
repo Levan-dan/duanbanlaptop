@@ -1,0 +1,8 @@
+
+
+.buttonChangeColor{
+   -fx-font-size: 17;
+}
+.buttonChangeColor:hover {
+    -fx-text-fill: blue;
+}

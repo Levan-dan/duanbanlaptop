@@ -168,6 +168,7 @@ public class PutDataIntoTableView {
                 tableView.getItems().removeIf(product -> product.getIdProduct() == number);
 
             }
+
         }
 
     }

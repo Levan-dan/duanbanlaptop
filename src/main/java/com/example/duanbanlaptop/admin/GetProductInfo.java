@@ -2,7 +2,6 @@ package com.example.duanbanlaptop.admin;
 
 import com.example.duanbanlaptop.Connect;
 import com.example.duanbanlaptop.Object.Products;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
