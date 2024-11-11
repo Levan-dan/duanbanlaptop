@@ -14,9 +14,9 @@
             <columns>
                 <TableColumn fx:id="columnId" minWidth="80" text="idProduct" />
                 <TableColumn fx:id="columnName" minWidth="150" text="nameProduct" />
+                <TableColumn fx:id="columnImage" minWidth="114" text="image" />
                 <TableColumn fx:id="columnDescribe" minWidth="210" text="describe" />
                 <TableColumn fx:id="columnUnit" minWidth="80" text="unit" />
-                <TableColumn fx:id="columnImage" minWidth="114" text="image" />
                 <TableColumn fx:id="columnPrice" minWidth="80" text="price" />
                 <TableColumn fx:id="columnStock" minWidth="84" text="stock" />
             </columns>
