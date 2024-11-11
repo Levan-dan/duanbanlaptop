@@ -183,6 +183,7 @@ public class PutDataIntoTableView {
         if (result.isPresent()) {
             try {
                 number = Integer.parseInt(result.get());
+                System.out.println(number);
             } catch (NumberFormatException e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
@@ -197,11 +198,6 @@ public class PutDataIntoTableView {
 
             Optional<ButtonType> result1 = alert.showAndWait();
             if (result1.isPresent() && result1.get() == ButtonType.OK) {
-                GetProductInfo getProductInfo = new GetProductInfo();
-                Products products = getProductInfo.getProductInfo(number);
-
-                if (products != null) {
-                    System.out.println(products.getNameProduct());
 
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/duanbanlaptop/view/edit.fxml"));
                     Parent parent = fxmlLoader.load();
@@ -215,6 +211,9 @@ public class PutDataIntoTableView {
 
                     addProductStage.initModality(Modality.APPLICATION_MODAL);
                     addProductStage.showAndWait();
+                tableView.getItems().clear();
+                initialize();
+
                 } else {
                     Alert alert1 = new Alert(Alert.AlertType.CONFIRMATION);
                     alert1.setTitle("Confirmation");
@@ -225,7 +224,3 @@ public class PutDataIntoTableView {
         }
     }
 
-
-
-
-}
