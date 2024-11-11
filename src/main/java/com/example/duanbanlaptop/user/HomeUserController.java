@@ -92,14 +92,13 @@ public class HomeUserController {
 
         Label nameLabel = new Label(name);
         nameLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 12px; -fx-text-fill: #333333;");
-        Label priceLabel = new Label(  priceUser + " VND");
-        Label quantityLabel = new Label("Quantity: " + stockUser);
+        Label priceLabel = new Label(  price + " VND");
+        Label quantityLabel = new Label("Quantity: " + stock);
 
 
         vbox.getChildren().addAll(imageView, nameLabel, priceLabel, quantityLabel);
         vbox.setStyle("-fx-border-color: black; -fx-border-radius: 15;");
         vbox.setMinHeight(260);
-        iterm.getChildren().add(vbox);
         return vbox;
     }
 

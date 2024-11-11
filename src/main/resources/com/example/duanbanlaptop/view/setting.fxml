@@ -12,13 +12,13 @@
             prefHeight="450.0" prefWidth="800.0">
 
     <top>
-        <HBox alignment="CENTER" minHeight="50" style="-fx-background-color:  #00FFFF">
+        <HBox alignment="CENTER" minHeight="50" style="-fx-background-color:  #7C00FF">
             <Label fx:id="title" text="Setting" style="-fx-font-size: 25; -fx-font-weight: bold"/>
         </HBox>
 
     </top>
     <left>
-        <VBox alignment="CENTER" minWidth="200"  style="-fx-background-color: #00FFFF">
+        <VBox alignment="CENTER" minWidth="200"  style="-fx-background-color: #7C00FF  ">
             <VBox spacing="70" style="-fx-padding: 30 0 0 25">
                 <Button onMouseClicked="#orderUser" minWidth="150" text="Order" style="-fx-font-size: 15; -fx-background-color: #FFCCCC" />
                 <Button onMouseClicked="#purchaseUser" minWidth="150" text="Purchased orders" style="-fx-font-size: 15; -fx-background-color: #FFCCCC"/>
