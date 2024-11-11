@@ -74,7 +74,6 @@ public class HomeUserController {
 
         resultSet.close();
         statement.close();
-        conn.close();
     }
 
     private VBox createProductBox(String imageUrl, String name, double price, int stock) {
@@ -83,7 +82,7 @@ public class HomeUserController {
 
         ImageView imageView = new ImageView(new Image(imageUrl));
         imageView.setFitWidth(135);
-        imageView.setFitHeight(135);
+        imageView.setFitHeight(145);
 
         Rectangle clip = new Rectangle(135, 145);
         clip.setArcWidth(20);
@@ -97,8 +96,9 @@ public class HomeUserController {
 
 
         vbox.getChildren().addAll(imageView, nameLabel, priceLabel, quantityLabel);
-        vbox.setStyle("-fx-border-color: black; -fx-border-radius: 15;");
         vbox.setMinHeight(260);
+        vbox.setMinWidth(160);
+        vbox.setStyle("-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 15; -fx-background-radius: 15");
         return vbox;
     }
 
