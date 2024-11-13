@@ -2,9 +2,11 @@ package com.example.duanbanlaptop.user;
 
 import com.example.duanbanlaptop.Connect;
 
+import com.example.duanbanlaptop.Main;
 import com.example.duanbanlaptop.Object.Products;
 import com.example.duanbanlaptop.function.TransitionFunction;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -56,19 +58,22 @@ public class HomeUserController {
         Connect connect = new Connect();
         Connection conn = connect.connect();
 
-        String query = "SELECT image, nameProduct, price, stock FROM products";
+        String query = "SELECT idProduct,image ,nameProduct, price, stock FROM products";
         Statement statement = conn.createStatement();
         ResultSet resultSet = statement.executeQuery(query);
 
         iterm.getChildren().clear();
+
 
         while (resultSet.next()) {
             String imageUrl = resultSet.getString("image");
             String nameProductUser = resultSet.getString("nameProduct");
             Double priceUser = resultSet.getDouble("price");
             int stockUser = resultSet.getInt("stock");
+            int idProduct = resultSet.getInt("idProduct");
 
-            VBox vbox = createProductBox(imageUrl, nameProductUser, priceUser, stockUser);
+
+            VBox vbox = createProductBox(idProduct,imageUrl, nameProductUser, priceUser, stockUser);
             iterm.getChildren().add(vbox);
         }
 
@@ -76,13 +81,31 @@ public class HomeUserController {
         statement.close();
     }
 
-    private VBox createProductBox(String imageUrl, String name, double price, int stock) {
+    private VBox createProductBox(int id,String imageUrl, String name, double price, int stock) {
         VBox vbox = new VBox(20);
         vbox.setAlignment(Pos.CENTER);
 
         ImageView imageView = new ImageView(new Image(imageUrl));
         imageView.setFitWidth(135);
         imageView.setFitHeight(145);
+
+        imageView.setOnMouseClicked(event -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("productDetailsUsers.fxml"));
+                Parent root = loader.load();
+                ProductDetailsUsersController controller = loader.getController();
+                controller.setInfo(id);
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.initModality(Modality.WINDOW_MODAL);
+                stage.showAndWait();
+
+            }catch (IOException e) {
+                e.printStackTrace();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        });
 
         Rectangle clip = new Rectangle(135, 145);
         clip.setArcWidth(20);
@@ -135,19 +158,20 @@ public class HomeUserController {
         Connect connect = new Connect();
         Connection conn = connect.connect();
 
-        String query = "SELECT image, nameProduct, price, stock FROM products WHERE nameProduct LIKE ?";
+        String query = "SELECT idProduct, image, nameProduct, price, stock FROM products WHERE nameProduct LIKE ?";
         java.sql.PreparedStatement preparedStatement = conn.prepareStatement(query);
         preparedStatement.setString(1, "%" + keyword + "%");
 
         ResultSet resultSet = preparedStatement.executeQuery();
 
         while (resultSet.next()) {
+            int id = resultSet.getInt("idProduct");
             String imageUrl = resultSet.getString("image");
             String nameProductUser = resultSet.getString("nameProduct");
             Double priceUser = resultSet.getDouble("price");
             int stockUser = resultSet.getInt("stock");
 
-            VBox vbox = createProductBox(imageUrl, nameProductUser, priceUser, stockUser);
+            VBox vbox = createProductBox(id,imageUrl, nameProductUser, priceUser, stockUser);
             results.add(vbox);
         }
 
