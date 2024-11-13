@@ -64,6 +64,7 @@ public class HomeUserController {
 
         iterm.getChildren().clear();
 
+
         while (resultSet.next()) {
             String imageUrl = resultSet.getString("image");
             String nameProductUser = resultSet.getString("nameProduct");
