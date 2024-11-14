@@ -33,7 +33,7 @@
                 </HBox>
 
                 <HBox minWidth="200" alignment="CENTER" spacing="30">
-                    <ImageView fitWidth="40" fitHeight="40" preserveRatio="true">
+                    <ImageView onMouseClicked="#cart" fitWidth="40" fitHeight="40" preserveRatio="true">
                         <image>
                             <Image url="https://cdn.pixabay.com/photo/2013/07/12/14/53/cart-148964_640.png"/>
                         </image>
