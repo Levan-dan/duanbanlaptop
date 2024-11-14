@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class
-Connect {
+gitConnect {
     private String url = "jdbc:mysql://localhost:3306/duanbanhang";
     private String usernameDB = System.getenv("usernameDB");
     private String passwordDB = System.getenv("passwordDB");

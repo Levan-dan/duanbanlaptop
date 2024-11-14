@@ -21,9 +21,9 @@
                         <Image url="https://t4.ftcdn.net/jpg/05/49/86/39/360_F_549863991_6yPKI08MG7JiZX83tMHlhDtd6XLFAMce.jpg" />
                     </image>
                 </ImageView>
-                <VBox alignment="CENTER" spacing="40">
+                <VBox alignment="CENTER" spacing="30">
                     <Label fx:id="idProduct" prefHeight="18.0" prefWidth="158.0" text="Id product" />
-                    <Label fx:id="nameProduct" prefHeight="18.0" prefWidth="158.0" text="Name product" />
+                    <Label fx:id="nameProduct" prefHeight="18.0" prefWidth="158.0" text="Name product" style="-fx-font-weight: bold; -fx-font-size: 15"/>
                     <Label fx:id="describeProduct" prefHeight="18.0" prefWidth="158.0" text="Describe" />
                     <Label fx:id="unitProduct" prefHeight="18.0" prefWidth="158.0" text="Unit" />
                     <Label fx:id="stockProduct" prefHeight="18.0" prefWidth="158.0" text="Stock" />
