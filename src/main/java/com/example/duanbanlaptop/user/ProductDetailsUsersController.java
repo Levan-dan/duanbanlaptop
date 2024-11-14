@@ -41,8 +41,8 @@ public class ProductDetailsUsersController {
             nameProduct.setText(resultSet.getString("nameProduct"));
             describeProduct.setText(resultSet.getString("describe"));
             unitProduct.setText(resultSet.getString("unit"));
-            stockProduct.setText(resultSet.getString("stock"));
-            priceProduct.setText(resultSet.getString("price"));
+            stockProduct.setText(resultSet.getString("stock") + " Piece");
+            priceProduct.setText(resultSet.getString("price") + " VND");
             imageProduct.setImage(new Image(resultSet.getString("image")));
 
         }
