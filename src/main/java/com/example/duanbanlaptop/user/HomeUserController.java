@@ -220,4 +220,8 @@ public class HomeUserController {
     }
 
 
+    public void cart() throws IOException {
+        TransitionFunction transitionFunction = new TransitionFunction();
+        transitionFunction.transition("view/cart-interface.fxml");
+    }
 }
